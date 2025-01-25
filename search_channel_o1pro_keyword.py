@@ -421,14 +421,9 @@ class YouTubeContentAnalyzer:
         over_ratio = over_30s/total_count
 
         # 평균 조회수(상하위10% 제외)
-        vs=[ x["view_count"] for x in recent ]
-        vs.sort()
-        c=len(vs)//10
-        if c>0:
-            mid=vs[c:-c]
-        else:
-            mid=vs
-        avg_v=sum(mid)/len(mid) if mid else 0
+        vs = [ x["view_count"] for x in recent ]
+
+        avg_v = sum(vs)/len(vs) if vs else 0
 
         # 10만뷰↑ 중 최대
         viral=None
